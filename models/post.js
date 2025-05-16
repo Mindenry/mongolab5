@@ -1,15 +1,17 @@
 import mongoose, { Schema } from "mongoose";
-import { Content } from "next/font/google";
-const postSchema = new Schema(
+
+const productSchema = new Schema(
   {
     title: String,
     img: String,
     content: String,
+    price: Number,
   },
   {
     timestamps: true,
   }
 );
 
-const Post = mongoose.models.Post || mongoose.model("Post", postSchema);
-export default Post;
+const Product =
+  mongoose.models.Product || mongoose.model("Product", productSchema);
+export default Product;

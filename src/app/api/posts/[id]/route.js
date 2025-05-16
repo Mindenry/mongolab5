@@ -1,12 +1,12 @@
 import connectMongoDB from "../../../../../lib/mongodb";
-import Post from "../../../../../models/post";
+import Product from "../../../../../models/post";
 import { NextResponse } from "next/server";
 
 export async function GET(req, { params }) {
   const { id } = params;
   await connectMongoDB();
-  const post = await Post.findOne({ _id: id });
-  return NextResponse.json({ post }, { status: 200 });
+  const product = await Product.findOne({ _id: id });
+  return NextResponse.json({ product }, { status: 200 });
 }
 
 export async function PUT(req, { params }) {
@@ -15,8 +15,9 @@ export async function PUT(req, { params }) {
     newTitle: title,
     newImg: img,
     newContent: content,
+    newPrice: price,
   } = await req.json();
   await connectMongoDB();
-  await Post.findByIdAndUpdate(id, { title, img, content });
-  return NextResponse.json({ message: "Post updated" }, { status: 200 });
+  await Product.findByIdAndUpdate(id, { title, img, content, price });
+  return NextResponse.json({ message: "Product updated" }, { status: 200 });
 }

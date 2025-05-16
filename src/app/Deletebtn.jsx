@@ -22,7 +22,7 @@ function Deletebtn({ id }) {
         if (res.ok) {
           Swal.fire({
             title: "ลบแล้ว!",
-            text: "ข้อมูลของคุณถูกลบเรียบร้อยแล้ว",
+            text: "สินค้าถูกลบออกจากระบบเรียบร้อยแล้ว",
             icon: "success",
             timer: 1500,
           }).then(() => {
@@ -31,7 +31,7 @@ function Deletebtn({ id }) {
         } else {
           Swal.fire({
             title: "เกิดข้อผิดพลาด!",
-            text: "ไม่สามารถลบข้อมูลได้",
+            text: "ไม่สามารถลบสินค้าได้",
             icon: "error",
           });
         }
@@ -40,12 +40,12 @@ function Deletebtn({ id }) {
   };
 
   return (
-    <a
+    <button
       onClick={handleDelete}
-      className="bg-red-500 text-white border py-2 px-3 rounded-md text-lg my-2"
+      className="bg-red-500 text-white py-2 px-3 rounded-md hover:bg-red-600 transition"
     >
-      Delete
-    </a>
+      ลบ
+    </button>
   );
 }
 
