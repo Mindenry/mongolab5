@@ -12,7 +12,7 @@ export default function CreateProduct() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const res = await fetch("http://localhost:3000/api/posts", {
         method: "POST",
@@ -28,7 +28,7 @@ export default function CreateProduct() {
       });
 
       if (res.ok) {
-        router.push("/");
+        router.push("/product");
       } else {
         throw new Error("Failed to create a product");
       }
@@ -42,7 +42,7 @@ export default function CreateProduct() {
       <h3 className="text-3xl font-bold">เพิ่มสินค้าใหม่</h3>
       <hr className="my-3" />
       <Link
-        href="/"
+        href="/product"
         className="bg-blue-500 text-white border py-2 px-3 rounded text-lg my-2 inline-block"
       >
         กลับหน้าหลัก
@@ -60,7 +60,7 @@ export default function CreateProduct() {
             required
           />
         </div>
-        
+
         <div className="mb-4">
           <label className="block text-gray-700 mb-1">URL รูปภาพ</label>
           <input
@@ -72,7 +72,7 @@ export default function CreateProduct() {
             required
           />
         </div>
-        
+
         <div className="mb-4">
           <label className="block text-gray-700 mb-1">รายละเอียดสินค้า</label>
           <textarea
@@ -83,7 +83,7 @@ export default function CreateProduct() {
             required
           ></textarea>
         </div>
-        
+
         <div className="mb-4">
           <label className="block text-gray-700 mb-1">ราคา (บาท)</label>
           <input
@@ -97,7 +97,7 @@ export default function CreateProduct() {
             step="0.01"
           />
         </div>
-        
+
         <button
           type="submit"
           className="bg-green-500 text-white border py-2 px-4 rounded text-lg hover:bg-green-600 transition"

@@ -71,7 +71,7 @@ function EditProductPage() {
       <h3 className="text-3xl font-bold">แก้ไขข้อมูลสินค้า</h3>
       <hr className="my-3" />
       <Link
-        href="/"
+        href="/product"
         className="bg-blue-500 text-white border py-2 px-3 rounded text-lg my-2 inline-block"
       >
         กลับหน้าหลัก

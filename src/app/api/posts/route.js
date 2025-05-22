@@ -1,11 +1,11 @@
-import connectMongoDB from "../../../../lib/mongodb";
+import { connectToDB } from "../../../../lib/mongodb";
 import Product from "../../../../models/post";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
   const { title, img, content, price } = await req.json();
   console.log(title, img, content, price);
-  await connectMongoDB();
+  await connectToDB();
   await Product.create({
     title,
     img,
@@ -19,14 +19,14 @@ export async function POST(req) {
 }
 
 export async function GET() {
-  await connectMongoDB();
+  await connectToDB();
   const products = await Product.find();
   return NextResponse.json({ products });
 }
 
 export async function DELETE(req) {
   const id = req.nextUrl.searchParams.get("id");
-  await connectMongoDB();
+  await connectToDB();
   await Product.findByIdAndDelete(id);
   return NextResponse.json({ message: "Product deleted" }, { status: 200 });
 }
